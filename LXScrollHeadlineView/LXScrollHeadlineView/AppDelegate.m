@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LXHeadlinesController.h"
 
 @interface AppDelegate ()
 
@@ -15,8 +16,13 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    LXHeadlinesController *rootVC = [[LXHeadlinesController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootVC];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = nav;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

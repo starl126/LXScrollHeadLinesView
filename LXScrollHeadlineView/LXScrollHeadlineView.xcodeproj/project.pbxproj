@@ -15,6 +15,17 @@
 		3C2AB8ED1E700D3500E4F051 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C2AB8EB1E700D3500E4F051 /* LaunchScreen.storyboard */; };
 		3C2AB8F81E700D3500E4F051 /* LXScrollHeadlineViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB8F71E700D3500E4F051 /* LXScrollHeadlineViewTests.m */; };
 		3C2AB9031E700D3500E4F051 /* LXScrollHeadlineViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB9021E700D3500E4F051 /* LXScrollHeadlineViewUITests.m */; };
+		3C2AB9131E700D7400E4F051 /* LXScrollHeadlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB9121E700D7400E4F051 /* LXScrollHeadlineView.m */; };
+		3C2AB9161E700DCF00E4F051 /* LXScrollHeadline.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB9151E700DCF00E4F051 /* LXScrollHeadline.m */; };
+		3C2AB9291E70105A00E4F051 /* LXHeadlinesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB9181E70105A00E4F051 /* LXHeadlinesController.m */; };
+		3C2AB92A1E70105A00E4F051 /* Test0Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB91A1E70105A00E4F051 /* Test0Controller.m */; };
+		3C2AB92B1E70105A00E4F051 /* Test1Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB91C1E70105A00E4F051 /* Test1Controller.m */; };
+		3C2AB92C1E70105A00E4F051 /* Test2Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB91E1E70105A00E4F051 /* Test2Controller.m */; };
+		3C2AB92D1E70105A00E4F051 /* Test3Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB9201E70105A00E4F051 /* Test3Controller.m */; };
+		3C2AB92E1E70105A00E4F051 /* Test4Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB9221E70105A00E4F051 /* Test4Controller.m */; };
+		3C2AB92F1E70105A00E4F051 /* Test5Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB9241E70105A00E4F051 /* Test5Controller.m */; };
+		3C2AB9301E70105A00E4F051 /* Test6Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB9261E70105A00E4F051 /* Test6Controller.m */; };
+		3C2AB9311E70105A00E4F051 /* Test7Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2AB9281E70105A00E4F051 /* Test7Controller.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +62,28 @@
 		3C2AB8FE1E700D3500E4F051 /* LXScrollHeadlineViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LXScrollHeadlineViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C2AB9021E700D3500E4F051 /* LXScrollHeadlineViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LXScrollHeadlineViewUITests.m; sourceTree = "<group>"; };
 		3C2AB9041E700D3500E4F051 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C2AB9111E700D7400E4F051 /* LXScrollHeadlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXScrollHeadlineView.h; sourceTree = "<group>"; };
+		3C2AB9121E700D7400E4F051 /* LXScrollHeadlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXScrollHeadlineView.m; sourceTree = "<group>"; };
+		3C2AB9141E700DCF00E4F051 /* LXScrollHeadline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXScrollHeadline.h; sourceTree = "<group>"; };
+		3C2AB9151E700DCF00E4F051 /* LXScrollHeadline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXScrollHeadline.m; sourceTree = "<group>"; };
+		3C2AB9171E70105A00E4F051 /* LXHeadlinesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXHeadlinesController.h; sourceTree = "<group>"; };
+		3C2AB9181E70105A00E4F051 /* LXHeadlinesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXHeadlinesController.m; sourceTree = "<group>"; };
+		3C2AB9191E70105A00E4F051 /* Test0Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test0Controller.h; sourceTree = "<group>"; };
+		3C2AB91A1E70105A00E4F051 /* Test0Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test0Controller.m; sourceTree = "<group>"; };
+		3C2AB91B1E70105A00E4F051 /* Test1Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test1Controller.h; sourceTree = "<group>"; };
+		3C2AB91C1E70105A00E4F051 /* Test1Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test1Controller.m; sourceTree = "<group>"; };
+		3C2AB91D1E70105A00E4F051 /* Test2Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test2Controller.h; sourceTree = "<group>"; };
+		3C2AB91E1E70105A00E4F051 /* Test2Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test2Controller.m; sourceTree = "<group>"; };
+		3C2AB91F1E70105A00E4F051 /* Test3Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test3Controller.h; sourceTree = "<group>"; };
+		3C2AB9201E70105A00E4F051 /* Test3Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test3Controller.m; sourceTree = "<group>"; };
+		3C2AB9211E70105A00E4F051 /* Test4Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test4Controller.h; sourceTree = "<group>"; };
+		3C2AB9221E70105A00E4F051 /* Test4Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test4Controller.m; sourceTree = "<group>"; };
+		3C2AB9231E70105A00E4F051 /* Test5Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test5Controller.h; sourceTree = "<group>"; };
+		3C2AB9241E70105A00E4F051 /* Test5Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test5Controller.m; sourceTree = "<group>"; };
+		3C2AB9251E70105A00E4F051 /* Test6Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test6Controller.h; sourceTree = "<group>"; };
+		3C2AB9261E70105A00E4F051 /* Test6Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test6Controller.m; sourceTree = "<group>"; };
+		3C2AB9271E70105A00E4F051 /* Test7Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test7Controller.h; sourceTree = "<group>"; };
+		3C2AB9281E70105A00E4F051 /* Test7Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test7Controller.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +134,29 @@
 		3C2AB8DC1E700D3500E4F051 /* LXScrollHeadlineView */ = {
 			isa = PBXGroup;
 			children = (
+				3C2AB9101E700D6300E4F051 /* LXScrollHeadlineView */,
 				3C2AB8E01E700D3500E4F051 /* AppDelegate.h */,
 				3C2AB8E11E700D3500E4F051 /* AppDelegate.m */,
 				3C2AB8E31E700D3500E4F051 /* ViewController.h */,
 				3C2AB8E41E700D3500E4F051 /* ViewController.m */,
+				3C2AB9171E70105A00E4F051 /* LXHeadlinesController.h */,
+				3C2AB9181E70105A00E4F051 /* LXHeadlinesController.m */,
+				3C2AB9191E70105A00E4F051 /* Test0Controller.h */,
+				3C2AB91A1E70105A00E4F051 /* Test0Controller.m */,
+				3C2AB91B1E70105A00E4F051 /* Test1Controller.h */,
+				3C2AB91C1E70105A00E4F051 /* Test1Controller.m */,
+				3C2AB91D1E70105A00E4F051 /* Test2Controller.h */,
+				3C2AB91E1E70105A00E4F051 /* Test2Controller.m */,
+				3C2AB91F1E70105A00E4F051 /* Test3Controller.h */,
+				3C2AB9201E70105A00E4F051 /* Test3Controller.m */,
+				3C2AB9211E70105A00E4F051 /* Test4Controller.h */,
+				3C2AB9221E70105A00E4F051 /* Test4Controller.m */,
+				3C2AB9231E70105A00E4F051 /* Test5Controller.h */,
+				3C2AB9241E70105A00E4F051 /* Test5Controller.m */,
+				3C2AB9251E70105A00E4F051 /* Test6Controller.h */,
+				3C2AB9261E70105A00E4F051 /* Test6Controller.m */,
+				3C2AB9271E70105A00E4F051 /* Test7Controller.h */,
+				3C2AB9281E70105A00E4F051 /* Test7Controller.m */,
 				3C2AB8E61E700D3500E4F051 /* Main.storyboard */,
 				3C2AB8E91E700D3500E4F051 /* Assets.xcassets */,
 				3C2AB8EB1E700D3500E4F051 /* LaunchScreen.storyboard */,
@@ -138,6 +190,17 @@
 				3C2AB9041E700D3500E4F051 /* Info.plist */,
 			);
 			path = LXScrollHeadlineViewUITests;
+			sourceTree = "<group>";
+		};
+		3C2AB9101E700D6300E4F051 /* LXScrollHeadlineView */ = {
+			isa = PBXGroup;
+			children = (
+				3C2AB9141E700DCF00E4F051 /* LXScrollHeadline.h */,
+				3C2AB9151E700DCF00E4F051 /* LXScrollHeadline.m */,
+				3C2AB9111E700D7400E4F051 /* LXScrollHeadlineView.h */,
+				3C2AB9121E700D7400E4F051 /* LXScrollHeadlineView.m */,
+			);
+			path = LXScrollHeadlineView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,9 +336,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C2AB9161E700DCF00E4F051 /* LXScrollHeadline.m in Sources */,
+				3C2AB92C1E70105A00E4F051 /* Test2Controller.m in Sources */,
+				3C2AB92B1E70105A00E4F051 /* Test1Controller.m in Sources */,
 				3C2AB8E51E700D3500E4F051 /* ViewController.m in Sources */,
+				3C2AB92E1E70105A00E4F051 /* Test4Controller.m in Sources */,
+				3C2AB92F1E70105A00E4F051 /* Test5Controller.m in Sources */,
+				3C2AB9301E70105A00E4F051 /* Test6Controller.m in Sources */,
+				3C2AB92A1E70105A00E4F051 /* Test0Controller.m in Sources */,
+				3C2AB9131E700D7400E4F051 /* LXScrollHeadlineView.m in Sources */,
 				3C2AB8E21E700D3500E4F051 /* AppDelegate.m in Sources */,
 				3C2AB8DF1E700D3500E4F051 /* main.m in Sources */,
+				3C2AB9291E70105A00E4F051 /* LXHeadlinesController.m in Sources */,
+				3C2AB92D1E70105A00E4F051 /* Test3Controller.m in Sources */,
+				3C2AB9311E70105A00E4F051 /* Test7Controller.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
