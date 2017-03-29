@@ -24,7 +24,7 @@
 @property (nonatomic,assign) CGFloat intervalR;
 @property (nonatomic,assign) CGFloat intervalG;
 @property (nonatomic,assign) CGFloat intervalB;
-@property (nonatomic,assign) CGFloat *defaultComponents;
+@property (nonatomic,assign) const CGFloat *defaultComponents;
 @property (nonatomic,assign) NSInteger touchesCount;
 
 @end
@@ -35,15 +35,16 @@
 {
     if (self = [super initWithFrame:frame]) {
         _defaultFont = [UIFont systemFontOfSize:14.0];
-        _defaultColor = [UIColor blackColor];
+        _defaultColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1.0];
         _selectedMultiple = 0.3;
-        _selectedColor = [UIColor redColor];
+        _selectedColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:1.0];
         _headlinesHeight =  44.f;
         _betweenMarginX = 6;
         _marginX = 6;
         _previousPoint = CGPointZero;
         _duration = 0.3;
         _headlinesType = LXScrollHeadlineTypeAequilate;
+        _titleWidth = 60;
         [self updateRGBComponents];
         [self registerKVO];
     }
@@ -102,10 +103,8 @@
 #pragma mark------------------更新字体颜色的三分量
 - (void)updateRGBComponents
 {
-    CGFloat selectedComponents[3];
-    [self getRGBComponents:selectedComponents forColor:_selectedColor];
-    CGFloat defaultComponents[3];
-    [self getRGBComponents:defaultComponents forColor:_defaultColor];
+    const CGFloat *defaultComponents = CGColorGetComponents(_defaultColor.CGColor);
+    const CGFloat *selectedComponents = CGColorGetComponents(_selectedColor.CGColor);
     _intervalR = selectedComponents[0] - defaultComponents[0];
     _intervalG = selectedComponents[1] - defaultComponents[1];
     _intervalB = selectedComponents[2] - defaultComponents[2];
@@ -114,9 +113,13 @@
 #pragma mark------------------计算字体的宽度
 - (void)calculateTitlesButtonWidth:(LXScrollHeadline *)headline
 {
-    NSDictionary *dict = @{NSFontAttributeName:_defaultFont};
-    CGRect rect = [headline.title boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, _headlinesHeight) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil];
-    headline.width = rect.size.width;
+    if (_headlinesType != LXScrollHeadlineTypeEqualWidth) {
+        NSDictionary *dict = @{NSFontAttributeName:_defaultFont};
+        CGRect rect = [headline.title boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, _headlinesHeight) options:NSStringDrawingUsesLineFragmentOrigin attributes:dict context:nil];
+        headline.width = rect.size.width;
+    }else{
+        headline.width = _titleWidth;
+    }
 }
 #pragma mark------------------更新控制器的view的frame
 - (void)updateControllerView
@@ -195,19 +198,31 @@
             x = _marginX + idx * (maxWidth + _betweenMarginX);
             obj.frame = CGRectMake(x, y, width, height);
         }];
-    }else{
+    }else if (_headlinesType == LXScrollHeadlineTypeEquidistant){
         __block CGFloat x = 0;
         __block CGFloat width = 0;
-        __block CGFloat lastMaxX = _marginX;
+        __block CGFloat lastMaxX = 0;
         [_buttonTitles enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL * _Nonnull stop) {
             obj.transform = CGAffineTransformIdentity;
             width = _headlines[idx].width;
-            x = lastMaxX + _betweenMarginX;
+            if (0 == idx) {
+                x = _marginX;
+            }else{
+                x = lastMaxX + _betweenMarginX;
+            }
             obj.frame = CGRectMake(x, y, width, height);
             lastMaxX = CGRectGetMaxX(obj.frame);
         }];
+    }else{
+        __block CGFloat x = 0;
+        [_buttonTitles enumerateObjectsUsingBlock:^(UIButton *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            obj.transform = CGAffineTransformIdentity;
+            x = _marginX + idx * (_titleWidth + _betweenMarginX);
+            obj.frame = CGRectMake(x, y, _titleWidth, height);
+        }];
     }
     _titleScrollView.contentSize = CGSizeMake(CGRectGetMaxX(_buttonTitles.lastObject.frame) + _marginX, _headlinesHeight);
+    NSLog(@"last=%@,contentsize=%@",NSStringFromCGRect(_buttonTitles.lastObject.frame),NSStringFromCGSize(_titleScrollView.contentSize));
     
 }
 #pragma mark-------------获取颜色的三基色，适用所有的非RGB的
@@ -249,6 +264,7 @@
     CGFloat selectedG = _intervalG * (1 - factor) + _defaultComponents[1];
     CGFloat selectedB = _intervalB * (1 - factor) + _defaultComponents[2];
     _factor = factor;
+    NSLog(@"---%f----%f----%f----%f",factor,defaultR,defaultG,defaultB);
     if (self.previousPoint.x <= point.x) {//向右滑动
         if (_previousPage < _buttonTitles.count - 1) {
             [self.buttonTitles[_previousPage + 1] setTitleColor:[UIColor colorWithRed:defaultR green:defaultG blue:defaultB alpha:1.0] forState:UIControlStateNormal];
@@ -270,11 +286,21 @@
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    self.touchesCount = 0;
     CGPoint point = scrollView.contentOffset;
     NSInteger page = (point.x + self.controllerScrollView.bounds.size.width * 0.5) / self.controllerScrollView.bounds.size.width;
+    if (self.touchesCount > 1) {
+        _buttonTitles[page].transform = CGAffineTransformMakeScale(1 + _selectedMultiple, 1 + _selectedMultiple);
+        [_buttonTitles enumerateObjectsUsingBlock:^(UIButton * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if (idx != page) {
+                obj.transform = CGAffineTransformIdentity;
+                [obj setTitleColor:_defaultColor forState:UIControlStateNormal];
+            }
+        }];
+    }
+    [_buttonTitles[page] setTitleColor:_selectedColor forState:UIControlStateNormal];
+    self.touchesCount = 0;
+    [self updateSelectedTitlePositionX:_buttonTitles[page]];
     _previousPage = page;
-    [self clickButtonTitle:_buttonTitles[page]];
 }
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
@@ -299,7 +325,10 @@
         [self updateControllerView];
     }else if ([keyPath isEqualToString:@"betweenMarginX"] || [keyPath isEqualToString:@"marginX"]){
         [self updateButtonTitlesFrame];
-        [self clickButtonTitle:_buttonTitles[_previousPage]];
+    }else if ([keyPath isEqualToString:@"titleWidth"]){
+        [self updateButtonTitlesFrame];
+    }else if ([keyPath isEqualToString:@"headlinesType"]){
+        [self updateButtonTitlesFrame];
     }else{
         
     }
@@ -335,7 +364,7 @@
 }
 - (NSArray <NSString *>*)registerProperties
 {
-    return @[@"defaultFont",@"selectedMultiple",@"defaultColor",@"selectedColor",@"headlinesHeight",@"betweenMarginX",@"marginX",@"duration"];
+    return @[@"defaultFont",@"selectedMultiple",@"defaultColor",@"selectedColor",@"headlinesHeight",@"betweenMarginX",@"marginX",@"duration",@"titleWidth",@"headlinesType"];
 }
 - (NSMutableArray *)headlinesWidth
 {

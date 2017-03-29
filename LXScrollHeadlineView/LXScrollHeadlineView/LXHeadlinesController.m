@@ -74,9 +74,10 @@
 {
     _headlinesView.defaultFont = [UIFont systemFontOfSize:18];
     _headlinesView.selectedMultiple = 0.4;
-    _headlinesView.defaultColor = [UIColor blueColor];
-    _headlinesView.selectedColor = [UIColor darkTextColor];
-    _headlinesView.headlinesType = LXScrollHeadlineTypeEquidistant;
+    _headlinesView.defaultColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0];
+    _headlinesView.selectedColor = [UIColor colorWithRed:1 green:0.5 blue:0.5 alpha:1.0];
+    _headlinesView.headlinesType = LXScrollHeadlineTypeEqualWidth;
+//    _headlinesView.titleWidth = 80;
     _headlinesView.headlinesHeight = 66;
     _headlinesView.betweenMarginX = 20;
     _headlinesView.marginX = 10;

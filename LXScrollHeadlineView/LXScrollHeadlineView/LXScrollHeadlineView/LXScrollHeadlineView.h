@@ -11,7 +11,8 @@
 
 typedef NS_ENUM(NSUInteger,LXScrollHeadlineType) {
     LXScrollHeadlineTypeAequilate = 0,  //标题等宽,默认情况下是计算所有标题最多字符串的宽度
-    LXScrollHeadlineTypeEquidistant     //标题等间距，标题采用根据字符串自适应
+    LXScrollHeadlineTypeEquidistant,    //标题等间距，标题采用根据字符串自适应
+    LXScrollHeadlineTypeEqualWidth,     //标题宽度被指定
 };
 
 @interface LXScrollHeadlineView : UIView
@@ -29,9 +30,9 @@ typedef NS_ENUM(NSUInteger,LXScrollHeadlineType) {
 @property (nonatomic,strong) UIFont *defaultFont;
 /** 标题被选中时字体放大倍数 默认是0.3 */
 @property (nonatomic,assign) CGFloat selectedMultiple;
-/** 标题默认颜色 默认值为blackColor */
+/** 标题默认颜色 默认值为R:0 G:0 B:0 A:1,请颜色必须能遵守RGBA */
 @property (nonatomic,strong) UIColor *defaultColor;
-/** 标题被选中的颜色 默认值为redColor */
+/** 标题被选中的颜色 默认值为R:1 G:0 B:0 A:1,请颜色必须能遵守RGBA */
 @property (nonatomic,strong) UIColor *selectedColor;
 /** 整个标题的高度 默认为44 */
 @property (nonatomic,assign) CGFloat headlinesHeight;
@@ -43,6 +44,7 @@ typedef NS_ENUM(NSUInteger,LXScrollHeadlineType) {
 @property (nonatomic,assign) CGFloat duration;
 /** 标题排布方式 默认是LXScrollHeadlineTypeAequilate */
 @property (nonatomic,assign) LXScrollHeadlineType headlinesType;
-
+/** 标题的宽度，如果设置有效，必须设置headlinesType为LXScrollHeadlineTypeEqualWidth 默认是60*/
+@property (nonatomic,assign) CGFloat titleWidth;
 
 @end
